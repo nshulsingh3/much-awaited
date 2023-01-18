@@ -9,9 +9,10 @@
 	<body>
 		<h1>Boobs and Money</h1>
 		<div class="grid">
-		<img th:src="@{/images/logo.png}" />
+			<img th:src="@{/images/logo.png}" />
 		</div>
 		<form method="POST" th:object="${design}">
+			  
 			<div class="grid">
 				<div class="ingredient-group" id="wraps">
 					<h3>Designate your wrap:</h3>
@@ -49,11 +50,19 @@
 					</div>
 				</div>
 			</div>
+			<div class="grid">
+			<span class="validationError"
+          th:if="${#fields.hasErrors('ingredients')}"
+          th:errors="*{ingredients}">Ingredient Error</span>
+          </div>
 			<div id="submit">
 				<h3>Name your taco creation:</h3>
 				<input type="text" th:field="*{name}" />
 				
 				<button>Submit your taco</button>
+				<br/>
+				<span class="validationError" th:if="${#fields.hasErrors('name')}" th:errors="*{name}">Name Error</span>
+
 			</div>
 		</form>
 	</body>
