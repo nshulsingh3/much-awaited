@@ -1,5 +1,7 @@
 package tacos;
 
+import java.util.Date;
+
 import org.hibernate.validator.constraints.CreditCardNumber;
 
 import jakarta.validation.constraints.Digits;
@@ -9,6 +11,11 @@ import lombok.Data;
 
 @Data
 public class Order {
+
+	private long id;
+
+	private Date placedAt;
+
 	@NotBlank(message = "required")
 	private String name;
 
